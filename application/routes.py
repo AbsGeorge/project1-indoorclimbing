@@ -20,7 +20,7 @@ def create():
 @app.route("/update/<int:id>")
 def update(id):
     centre_change = climbing_centre.query.filter_by(id=id)
-    new_centre = redirect (url("/create"))
+    new_centre = redirect (url("create"))
     db.session.add(centre_change)
     db.session.commit()
     return "Information updated"
@@ -30,3 +30,5 @@ def delete(id):
     centre_change = climbing_centre.query.filter_by(id=id)
     db.session.delete(centre_change)
     return "Climber Centre Deleted"
+
+testing__
