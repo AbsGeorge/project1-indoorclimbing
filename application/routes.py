@@ -31,4 +31,3 @@ def delete(id):
     db.session.delete(centre_change)
     return "Climber Centre Deleted"
 
-testing__
