@@ -13,6 +13,15 @@ class CentreForm(FlaskForm):
         Length(min=1, max=100)
     ])
 
+    climber_first_name = StringField("First name ", validators=[ 
+        Length(min=1, max=50)])
+
+    climber_last_name = StringField("Last name ", validators=[ 
+        Length(min=1, max=50)])
+
+    climber_email = StringField("Email address ", validators=[ 
+        Length(min=1, max=100)])
+
     submit = SubmitField('Submit')
 
   

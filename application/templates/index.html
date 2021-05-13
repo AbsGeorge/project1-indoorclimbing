@@ -1,10 +1,15 @@
 {% extends 'layout.html' %}
 {% block body_content %}
-    <br>
+    
+<br><br>
+
+<h2> Climbing Centre</h2>
     {% for centre in centres %}
     {{ centre.centre_name }}
+    {{ centre.address }}
     {% for climber in centre.climbers %}
     {{ climber.first_name }}
+    {{ climber.last_name }}
     {% endfor %}
     {% endfor %}
 {% endblock body_content %}

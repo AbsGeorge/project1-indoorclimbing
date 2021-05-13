@@ -21,17 +21,23 @@ def create():
     return render_template("add.html", form=form)
 
 
-@app.route("/update/<int:id>")
+@app.route("/update/<int:id>", methods=["GET","POST"])
 def update(id):
-    centre_change = ClimbingCentre.query.filter_by(id=id)
-#~new_centre = redirect (url("create"))
-    db.session.add(centre_change)
-    db.session.commit()
-    return "Information updated"
+    form = CentreForm()
+    if request.method == "POST":
+        if form.validate_on_submit():
+            centre = ClimbingCentre(centre_name=form.name.data, address=form.address.data)
+            db.session.add(centre)
+            db.session.commit()
+            return redirect(url_for("home"))
+    return render_template("update.html", form=form)
+   
 
-@app.route("/delete<int:id>")
+@app.route("/delete<int:id>", methods=["GET","DELETE","POST"])
 def delete(id):
     centre_change = ClimbingCentre.query.filter_by(id=id)
     db.session.delete(centre_change)
-    return "Climber Centre Deleted"
+    db.session.commit()
+    return redirect(url_for("home"))
+
 
