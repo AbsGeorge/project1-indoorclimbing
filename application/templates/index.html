@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+    <br>
+    {% for centre in centres %}
+    {{ centre.centre_name }}
+    {% for climber in centre.climbers %}
+    {{ climber.first_name }}
+    {% endfor %}
+    {% endfor %}
+{% endblock body_content %}
