@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+    <form action='' method='POST'>
+
+    <p>
+        {{ form.hidden_tag() }}
+        {{ form.climber_first_name.label }} {{ form.climber_first_name}} <br>
+        {{ form.climber_last_name.label }} {{ form.climber_last_name}} <br>
+        {{ form.climber_email.label }} {{ form.climber_email}} <br>
+
+
+        {{ form.submit }}
+    </p>
+    </form>
+
+{% endblock body_content %}

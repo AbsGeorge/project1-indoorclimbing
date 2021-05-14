@@ -1,8 +1,8 @@
-from os import name
+import unittest
+from flask.wrappers import Response
 from flask import url_for
 from flask_testing import TestCase
-from wtforms.validators import Email
-from application.models import ClimbingCentre
+from application.models import ClimbingCentre, ClimberInformation
 from application import app, db
 
 class TestBase(TestCase):
@@ -17,7 +17,7 @@ class TestBase(TestCase):
 
     def setUp(self):
         db.create_all()
-        db.session.add(ClimbingCentre(centre="name")
+        db.session.add(ClimbingCentre(centre_name="name", address="address"))
         db.session.commit()
 
     def tearDown(self):
@@ -30,7 +30,7 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
     def test_add_get(self):
-        response = self.client.get(url_for("add"))
+        response = self.client.get(url_for("create"))
         self.assertEqual(response.status_code, 200)
 
     def test_update_get(self):
@@ -51,20 +51,23 @@ class TestCreate(TestBase):
     def test_create_post(self):
         response = self.client.post(
             url_for("create"),
-            data=dict(address="What is the address of the centre you visited? "),
+            data=dict(centre_name="name", address="address"),
             follow_redirects=True
         )
-        self.assertIn(b"What is the address of the centre you visited? ", response.data)
+        self.assertIn(b"name", response.data)
+        self.assertIn(b"address", response.data)
     
 
 class TestUpdate(TestBase):
     def test_update_post(self):
         response = self.client.post(
             url_for("update", id=1), 
-            data=dict(Centre="Centre Updated"),
+            data=dict(centre_name="new name", address="new address"),
             follow_redirects=True
         )
-        self.assertIn(b'Centre Updated', response.data)
+        self.assertIn(b'new name', response.data)
+        self.assertIn(b"new address", response.data)
+
 
 class TestDelete(TestBase):
     def test_delete_get(self):
@@ -72,4 +75,4 @@ class TestDelete(TestBase):
             url_for("delete", id=1),
             follow_redirects=True
         )
-        self.assertNotIn(b'Centre', response.data)
+        self.assertNotIn(b'name', response.data)

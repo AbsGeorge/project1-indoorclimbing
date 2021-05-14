@@ -1,14 +1,13 @@
 {% extends 'layout.html' %}
 {% block body_content %}
+<br><br>
+Current Centre: {{ centre_update.centre_name }}
 
-    <form action='' method='POST'>
+<form action='' method='POST'>
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name }} 
+    {{ form.address.label }} {{ form.address }} 
+    {{ form.submit }}
+</form>
 
-        {{ form.hidden_tag() }}
-
-        {{ form.name.label }} {{ form.name }} 
-        {{ form.address.label }} {{ form.address }} 
-        
-        {{ form.submit }}
-        
-    </form>
 {% endblock body_content %}
