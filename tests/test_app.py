@@ -17,7 +17,8 @@ class TestBase(TestCase):
 
     def setUp(self):
         db.create_all()
-        db.session.add(ClimbingCentre(centre_name="name", address="address"))
+        centre = ClimbingCentre(centre_name="name", address="address")
+        db.session.add(centre)
         db.session.commit()
 
     def tearDown(self):
@@ -65,14 +66,13 @@ class TestCreate(TestBase):
 class TestSignup(TestBase):
     def test_signup_post(self):
         response = self.client.post(
-            url_for("signup"),
+            url_for("signup", id=1),
             data=dict(centre_name="name", address="address"),
             follow_redirects=True
         )
         self.assertIn(b"name", response.data)
         self.assertIn(b"address", response.data)
-    
-
+   
 class TestUpdate(TestBase):
     def test_update_post(self):
         response = self.client.post(
