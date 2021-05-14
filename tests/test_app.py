@@ -29,7 +29,7 @@ class TestViews(TestBase):
         response = self.client.get(url_for("home"))
         self.assertEqual(response.status_code, 200)
 
-    def test_add_get(self):
+    def test_create_get(self):
         response = self.client.get(url_for("create"))
         self.assertEqual(response.status_code, 200)
 
@@ -37,8 +37,13 @@ class TestViews(TestBase):
         response = self.client.get(url_for("update", id=1))
         self.assertEqual(response.status_code, 200)
 
+    def test_signup_get(self):
+        response = self.client.get(url_for("signup", id=1))
+        self.assertEqual(response.status_code, 200)
+
+
     def test_delete_get(self):
-        response = self.client.get(url_for("delete", id=1))
+        response = self.client.get(url_for("delete", id=1), follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 class TestRead(TestBase):
@@ -56,22 +61,32 @@ class TestCreate(TestBase):
         )
         self.assertIn(b"name", response.data)
         self.assertIn(b"address", response.data)
+
+class TestSignup(TestBase):
+    def test_signup_post(self):
+        response = self.client.post(
+            url_for("signup"),
+            data=dict(centre_name="name", address="address"),
+            follow_redirects=True
+        )
+        self.assertIn(b"name", response.data)
+        self.assertIn(b"address", response.data)
     
 
 class TestUpdate(TestBase):
     def test_update_post(self):
         response = self.client.post(
             url_for("update", id=1), 
-            data=dict(centre_name="new name", address="new address"),
+            data=dict(centre_name=" ", address=" "),
             follow_redirects=True
         )
-        self.assertIn(b'new name', response.data)
-        self.assertIn(b"new address", response.data)
+        self.assertIn(b' ', response.data)
+        self.assertIn(b" ", response.data)
 
 
 class TestDelete(TestBase):
-    def test_delete_get(self):
-        response = self.client.get(
+    def test_delete_delete(self):
+        response = self.client.delete(
             url_for("delete", id=1),
             follow_redirects=True
         )
