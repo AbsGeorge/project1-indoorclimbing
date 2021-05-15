@@ -9,7 +9,7 @@ from application import app, db
 
 
 class TestBase(LiveServerTestCase):
-    TEST_PORT = 5050 # test port, doesn't need to be open
+    TEST_PORT = 5050 
 
     def create_app(self):
 
@@ -46,21 +46,24 @@ class TestBase(LiveServerTestCase):
 class TestAdd(TestBase):
     TEST_CASES = 'testing'
 
-    def submit_input(self, case): # custom method
+    def submit_input(self, case):
         self.driver.find_element_by_xpath('/html/body/a[2]')
         self.driver.find_element_by_xpath('//*[@id="name"]').send_keys(case)
         self.driver.find_element_by_xpath('//*[@id="address"]').send_keys(case)
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
 
     def test_create(self):
-        self.driver.get(f'http://localhost:5000/create') # go to /create route
+
+        self.driver.get('http://34.89.94.21:5000/create') 
+        
+        
 
         input_box = self.driver.find_element_by_xpath('//*[@id="name"]')
         input_box.send_keys('centre')
         input_box = self.driver.find_element_by_xpath('//*[@id="address"]')
         input_box.send_keys('address')
 
-        self.driver.find_element_by_xpath('//*[@id="submit"]').click() # submit field
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click() 
 
-        assert self.driver.current_url == 'http://localhost:5000/home'
+        assert self.driver.current_url == 'http://34.89.94.21:5000/home'
 
