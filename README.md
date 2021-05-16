@@ -109,6 +109,9 @@ This is an example of many to many relationship with multiple tables in the data
 ![Continous Integration Pipeline](https://i.gyazo.com/2251906d0381f3874102da31cf58ebd7.png)
 
 Above is the Continuous integration used in my project. The focus is speed and efficiency from application, _including any future changes in code_, development-to-deployment. As code is pushed to my GitHub repository, Jenkins fetches and builds the code in my repository. Jenkins will then run any pre written unit and integration testing in a testing environment and with pre-installed plugins, Jenkins is then able to produce reports on how the application is performing.  
+
+#### A build being automated following a git push 
+![Build automation](https://i.gyazo.com/6c9f8d61ac93e880ba9bb6f66623381e.png)
  
 #### An image of Jenkins tracking changes (commits) made in my GitHub repo 
 ![Repo Tracking by Jenkins](https://i.gyazo.com/c6f6a3dfd9b315b1f6bd536a7bffddc7.png)
@@ -142,15 +145,35 @@ Once completed, The backend end was tested using unit testing and The full funct
 
 ### Unit Testing 
 
+pytest is used to run unit tests on the app. These are designed to determine if the if a certain function is running as expected. Jenkins produces console outputs that will inform the developer how many tests the code passed and which tests they failed. The images below show the type of outputs produced by Jenkins.
+
+They are identical to what happens when the test are manually executed in a python terminal. 
+
+![](https://i.gyazo.com/a51880748f52f76d226b479ff864234e.png)
+
+In this image, the circle images shows the testing coverage. In simple terms, the proportion of the application that is being tested. 
+
+Unit Testing = 76%
+Integration Testion = 100%
+
+Jenkins also shows you were the testing is failing ( pointed arrow )
+
+![](https://i.gyazo.com/9cdbfc0bca877b509b0abbb42fd331aa.png)
+
+
+
+
 
 #### Coverage Report 
+
+Overall, this is the proportion of the application that have written test to determine it functionality. 
 
 ![Coverage Report](https://i.gyazo.com/eabe7d91e63ca411ce6f725478bf54b6.png)
 
 
 ### Integrating Testing 
 
-In Integration testing I tested my software application as a whole, rather than mocking the application to it's routes as I did in unit testing.
+In Integration testing I tested my software application as a whole, rather than mocking the application to it's routes as I did in unit testing.I used selenium to simulate a user navigating the site (by clicking on elements in each page) and filling in forms as the testing
 
 ![](https://i.gyazo.com/6e7f37743af3ff5004f38068055f41e6.png)
 
@@ -162,8 +185,83 @@ In Integration testing I tested my software application as a whole, rather than 
 ![](https://i.gyazo.com/29c7937acb4efe8812491693d6c16387.png)
 
 
+## Front-End Design 
+
+### Home Page (Crud Read Function)
+
+The image below shows what the first ever user will see. The url: /home, will direct the user to this page.
+
+![](https://i.gyazo.com/c288e570258abf5e8eab9b5b5d2f0dc7.png)
+
+
+
+### Create Page (Crud Create Function)
+
+Clicking on the **Add New** button will direct the user to this create page (/create).
+
+The User will then able to add the name and address of a climbing centre they use. 
+
+![](https://i.gyazo.com/8115081efe2097503eaf648623b922a9.png)
+
+Once the user clicks on submit, the will be redirected to the home page (/home), where they will be able to access and read all the neccessary information. 
+
+![](https://i.gyazo.com/884f41ebf540d18f5f14cd0f06bbc7ce.png)
+
+### Sign-Up Page (Crud Update Function)
+
+A climber then electronically sign-up to a centre by clicking the sign-up button.
+The url, in this case (/signup/2), the 2 is the direct ID of a climbing centre which I will show and explain more about later. 
+
+![](https://i.gyazo.com/5c420bb033469ae770d87b7cedac3c4a.png)
+
+After the climber enters their information, they will be redirected to the home page.
+
+The climbers name will be displayed but for security reasons, their email will not. 
+
+![](https://i.gyazo.com/ec628163b900a64ca51215abfe0fb18f.png)
+
+### Delete Page (Crud Delete Funtion)
+
+Clicking the delete button will return the user to the home page and any information that was deleted will be removed from the database and the home page of the application. 
+
+![](https://i.gyazo.com/9f31e017591a3cb079ebe42287f1a35b.png)
+
+## Database 
+
+I decided to use mysql to store my data as I felt it was more secure than a standalone database. 
+
+Looking at the below image, you can see that the data input by the user is now securely stored in the relevant tables. 
+
+The number 2, which was shown on the sign-up page can be seen under centre_ID
+
+![](https://i.gyazo.com/1b09d98a0f29848ff8cb157a4c35821f.png)
+
+
+We can see that delete function works because once the button is clicked, the information in the database is now deleted. 
+
+![](https://i.gyazo.com/d2061198f0b6a5486f4455ea185fb40c.png)
+
+## Security Measures 
+
+Refer to Risk Assessment 
+
 ## Known Issues 
+* The delete function currently only deletes information related to the Climbing Centre and leaves the Climber information. 
+
+* 3/3 passed in the manual integration testing. 2/3 passed in Jenkins. 
 
 ## Future Improvements 
+* Refer to Trello Board 
+
+## Author 
+
+Abs Pinnankoh-Morrison 
 
 ## Footer 
+Special thanks to
+ 
+Harry Volker 
+
+Oliver Nichols 
+
+Help Desk 

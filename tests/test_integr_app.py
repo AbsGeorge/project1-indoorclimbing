@@ -56,7 +56,6 @@ class TestAdd(TestBase):
 
         self.driver.get('http://34.89.94.21:5000/create') 
         
-        
 
         input_box = self.driver.find_element_by_xpath('//*[@id="name"]')
         input_box.send_keys('centre')
