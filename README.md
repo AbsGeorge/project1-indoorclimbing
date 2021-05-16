@@ -16,6 +16,7 @@
   * [Unit Testing](#unit-testing)
   * [Integration Testing](#integration-testing)
 * [Front-End Design](#front-end)
+* [Database](#database)
 * [Footer](#footer)
 
 
