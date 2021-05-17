@@ -134,7 +134,18 @@ I used Google Cloud Platform, **GCP**, To build my virtual machines and to host 
 
 I also used the same platform to build my SQL database, that will be used to store all data collected from users. 
 
-The application was written using the python programming language on the Visual Studio Code.
+The application was written using the python programming language on the Visual Studio Code and stored in GitHub.
+
+There are a total of 9 branches with more than 15 commits in GitHub. 
+
+I named each branch "run" as can be seen from the image below
+
+![](https://i.gyazo.com/15c5996ad85ca80779c8fb9b660d7f6c.png)
+
+When you look at "run1", it is 15 commits behind the current "run" (image below). 
+
+![](https://i.gyazo.com/ce3a95c0a28007b5b784dc41511532b1.png)
+
 
 Once completed, The backend end was tested using unit testing and The full functionality of the application was testing using Selenium. 
 
@@ -177,11 +188,16 @@ In Integration testing I tested my software application as a whole, rather than 
 
 ![](https://i.gyazo.com/6e7f37743af3ff5004f38068055f41e6.png)
 
-##### This is an example of the line that was not being tested. Lines 17 to 20. 
+#### This is an example of the line that was not being tested. Lines 17 to 20. 
 
 ![](https://i.gyazo.com/886de20a22e15520a41fa902f005c432.png)
 
-##### However a full integration testing, with 100% coverage showed that the application is working. 
+#### However a full integration testing, with 100% coverage showed that the application is working. 
+
+In the image below, the code mimicks what a user will do. It firstly finds the /create page on the application.
+
+It then enters the details inside and returns to the /home page. 
+
 ![](https://i.gyazo.com/29c7937acb4efe8812491693d6c16387.png)
 
 
@@ -251,7 +267,16 @@ Refer to Risk Assessment
 * 3/3 passed in the manual integration testing. 2/3 passed in Jenkins. 
 
 ## Future Improvements 
-* Refer to Trello Board 
+
+The majority of improvements are outlined in my Trello Board using the MoSCoW principles. The current version of the application includes only must haves.
+
+ [A link to my Trello Board](https://trello.com/b/mkSUq0gB/indoor-bouldering-centre-ratings)
+
+* Burndown Chart to better apportion work left to do vs time
+* A more user friendly Interface 
+* The application should have a forum that allows for interactions and social meetups  
+* Include a ratings function for users. 
+* Include a Gunicorn 
 
 ## Author 
 
