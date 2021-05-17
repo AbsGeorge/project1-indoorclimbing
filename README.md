@@ -126,7 +126,6 @@ I did some risk assessment before embarking on building the project and I discov
 [A link to my full Risk Assessment](https://drive.google.com/file/d/1olqQSJ7y09J8EA4TxXEmbGOleK4tgDaq/view?usp=sharing)
  
 
-
 ## Development 
 
 I used Google Cloud Platform, **GCP**, To build my virtual machines and to host my application. 
@@ -145,59 +144,53 @@ When you look at "run1", it is 15 commits behind the current "run" (image below)
 
 ![](https://i.gyazo.com/ce3a95c0a28007b5b784dc41511532b1.png)
 
-
-Once completed, The backend end was tested using unit testing and The full functionality of the application was testing using Selenium. 
-
-
-
+Once completed, The backend end was tested using unit testing and The full functionality of the application was tested using Selenium. 
 
 ## Testing 
 
 ### Unit Testing 
 
-pytest is used to run unit tests on the app. These are designed to determine if the if a certain function is running as expected. Jenkins produces console outputs that will inform the developer how many tests the code passed and which tests they failed. The images below show the type of outputs produced by Jenkins.
+I used pytest to run the unit tests on the app. These are designed to determine if a certain function is running as expected. Jenkins produces console outputs that will inform the developer how many tests the code passed and which tests failed. The images below show the type of outputs produced by Jenkins.
 
 They are identical to what happens when the test are manually executed in a python terminal. 
 
 ![](https://i.gyazo.com/a51880748f52f76d226b479ff864234e.png)
 
-In this image, the circle images shows the testing coverage. In simple terms, the proportion of the application that is being tested. 
+In this image, the circled part shows the testing coverage. In simple terms, the proportion of the application that is being tested. 
 
 Unit Testing = 76%
-Integration Testion = 100%
+Integration Testing = 100%
 
 Jenkins also shows you were the testing is failing ( pointed arrow )
 
 ![](https://i.gyazo.com/9cdbfc0bca877b509b0abbb42fd331aa.png)
 
+From the image below, I have higlighted the areas not being tested in the Unit Testing
+
+![](https://i.gyazo.com/6e7f37743af3ff5004f38068055f41e6.png)
 
 
+This is the exact part of one of the areas not being tested
 
+![](https://i.gyazo.com/93136a7c545096557ed86d2a090d1b95.png)
+
+### Integration Testing 
+
+In Integration testing I tested my software application as a whole, rather than mocking the application to it's routes as I did in unit testing.I used selenium to simulate a user navigating the site (by clicking on elements in each page) and filling in forms as the testing
+
+The /create page that was not being tested in the Unit Testing was covered in the Integration Tests
+
+In the image below, the code mimicks what a user will do. Firstly, it finds the /create page on the application.
+
+It then enters the details inside and returns to the /home page. 
+
+![](https://i.gyazo.com/29c7937acb4efe8812491693d6c16387.png)
 
 #### Coverage Report 
 
 Overall, this is the proportion of the application that have written test to determine it functionality. 
 
 ![Coverage Report](https://i.gyazo.com/eabe7d91e63ca411ce6f725478bf54b6.png)
-
-
-### Integrating Testing 
-
-In Integration testing I tested my software application as a whole, rather than mocking the application to it's routes as I did in unit testing.I used selenium to simulate a user navigating the site (by clicking on elements in each page) and filling in forms as the testing
-
-![](https://i.gyazo.com/6e7f37743af3ff5004f38068055f41e6.png)
-
-#### This is an example of the line that was not being tested. Lines 17 to 20. 
-
-![](https://i.gyazo.com/886de20a22e15520a41fa902f005c432.png)
-
-#### However a full integration testing, with 100% coverage showed that the application is working. 
-
-In the image below, the code mimicks what a user will do. It firstly finds the /create page on the application.
-
-It then enters the details inside and returns to the /home page. 
-
-![](https://i.gyazo.com/29c7937acb4efe8812491693d6c16387.png)
 
 
 ## Front-End Design 
@@ -224,8 +217,8 @@ Once the user clicks on submit, the will be redirected to the home page (/home),
 
 ### Sign-Up Page (Crud Update Function)
 
-A climber then electronically sign-up to a centre by clicking the sign-up button.
-The url, in this case (/signup/2), the 2 is the direct ID of a climbing centre which I will show and explain more about later. 
+A climber will then be able to electronically sign-up to a centre by clicking the sign-up button.
+The url, in this case (/signup/2), where the 2 is the direct ID of a climbing centre which I will show and explain more about later. 
 
 ![](https://i.gyazo.com/5c420bb033469ae770d87b7cedac3c4a.png)
 
@@ -243,7 +236,7 @@ Clicking the delete button will return the user to the home page and any informa
 
 ## Database 
 
-I decided to use mysql to store my data as I felt it was more secure than a standalone database. 
+I decided to use mysql to store my data because it was more secure than a standalone database. 
 
 Looking at the below image, you can see that the data input by the user is now securely stored in the relevant tables. 
 
@@ -276,6 +269,7 @@ The majority of improvements are outlined in my Trello Board using the MoSCoW pr
 * The application should have a forum that allows for interactions and social meetups  
 * Include a ratings function for users. 
 * Include a Gunicorn 
+* 100% coverage report 
 
 ## Author 
 
