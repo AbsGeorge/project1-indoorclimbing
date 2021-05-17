@@ -80,8 +80,7 @@ Additionally, I would like to allow users to:
  
 
 ### Trello Board 
-<p align="center">
-  <img width="500" height="300" src="https://i.gyazo.com/877738232080f6c6b7da538563bf1ce7.jpg"> </p> 
+![](https://i.gyazo.com/877738232080f6c6b7da538563bf1ce7.jpg)
  
 ## Architecture 
 
