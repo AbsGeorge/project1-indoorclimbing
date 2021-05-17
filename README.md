@@ -81,7 +81,7 @@ Additionally, I would like to allow users to:
 
 ### Trello Board 
 <p align="center">
-  <img width="460" height="300" src="https://i.gyazo.com/877738232080f6c6b7da538563bf1ce7.jpg"> </p> 
+  <img width="500" height="300" src="https://i.gyazo.com/877738232080f6c6b7da538563bf1ce7.jpg"> </p> 
  
 ## Architecture 
 
@@ -90,10 +90,10 @@ Additionally, I would like to allow users to:
 The climbing Centre will either have no relationship with a climber or a relationship with multiple climbers. For simplicity reasons, a climber can only either have no relationship with a climbing centre or a relationship with one centre at a time. 
 <p>
 
-<img align="left" width="350" height="200" src="https://i.gyazo.com/6818060b71452c45c71f8e1082692010.png">
+<img align="left" width="500" height="300" src="https://i.gyazo.com/6818060b71452c45c71f8e1082692010.png">
 
 <p align="center">
-  <img width="350" height="200" src="https://i.gyazo.com/46b01c78a2f55f8f646f1acb980969de.png"> </p>
+  <img width="500" height="300" src="https://i.gyazo.com/46b01c78a2f55f8f646f1acb980969de.png"> </p>
  <br><br>
 
 ### Below is an example of some of the ideas I considered before settling for the above. 
@@ -124,9 +124,8 @@ I did some risk assessment before embarking on building the project and I discov
 
 ![Risk Assessment Image](https://i.gyazo.com/e5bd70eaa95414b528faed0d09821aaf.png)
 
-[A link to my full Risk Assessment](hhttps://docs.google.com/spreadsheets/d/1olqQSJ7y09J8EA4TxXEmbGOleK4tgDaq/edit?usp=drive_web&ouid=115195321729310544192&rtpof=true)
+[A link to my full Risk Assessment](https://drive.google.com/file/d/1olqQSJ7y09J8EA4TxXEmbGOleK4tgDaq/view?usp=sharing)
  
-
 
 
 ## Development 
